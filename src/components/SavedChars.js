@@ -20,9 +20,6 @@ const SavedChars = () => {
             <th scope="col" class="px-6 py-3">
               Hair Color
             </th>
-            <th scope="col" class="px-6 py-3">
-              <span class="sr-only">Edit</span>
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -38,15 +35,7 @@ const SavedChars = () => {
                 </th>
                 <td class="px-6 py-4">{height}</td>
                 <td class="px-6 py-4">{mass}</td>
-                <td class="px-6 py-4">{hair_color}</td>
-                <td class="px-6 py-4 text-right">
-                  <button
-                    href="#"
-                    class="font-medium text-blue-600  hover:underline"
-                  >
-                    Edit
-                  </button>
-                </td>
+                <td class="px-6 py-4 ">{hair_color}</td>
               </tr>
             )
           })}
