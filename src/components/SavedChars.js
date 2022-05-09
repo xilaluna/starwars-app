@@ -1,32 +1,55 @@
 import React from "react"
+import { useSelector } from "react-redux"
 
 const SavedChars = () => {
+  const { savedChars } = useSelector((state) => state.savedChars)
   return (
-    <div class="bg-white rounded p-5">
-      <table class="table-auto">
-        <thead>
+    <div class="relative overflow-x-auto rounded">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
-            <th>Song</th>
-            <th>Artist</th>
-            <th>Year</th>
+            <th scope="col" class="px-6 py-3">
+              Name
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Height
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Mass
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Hair Color
+            </th>
+            <th scope="col" class="px-6 py-3">
+              <span class="sr-only">Edit</span>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>The Sliding Mr. Bones </td>
-            <td>Malcolm Lockyer</td>
-            <td>1961</td>
-          </tr>
-          <tr>
-            <td>Witchy Woman</td>
-            <td>The Eagles</td>
-            <td>1972</td>
-          </tr>
-          <tr>
-            <td>Shining Star</td>
-            <td>Earth, Wind, and Fire</td>
-            <td>1975</td>
-          </tr>
+          {savedChars.map((obj) => {
+            const { name, height, mass, hair_color } = obj
+            return (
+              <tr class="bg-white border-b ">
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap"
+                >
+                  {name}
+                </th>
+                <td class="px-6 py-4">{height}</td>
+                <td class="px-6 py-4">{mass}</td>
+                <td class="px-6 py-4">{hair_color}</td>
+                <td class="px-6 py-4 text-right">
+                  <button
+                    href="#"
+                    class="font-medium text-blue-600  hover:underline"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>
